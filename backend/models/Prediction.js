@@ -1,0 +1,4 @@
+const mongoose=require('mongoose');
+const schema=new mongoose.Schema({owner:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true},patient:{type:mongoose.Schema.Types.ObjectId,ref:'Patient',required:true},assessmentId:{type:String,required:true,index:true},condition:{type:String,enum:['cardiovascular','diabetes'],default:'cardiovascular',index:true},model:{type:String,required:true},prediction:Number,probability:Number,decisionScore:Number,assessmentProbability:Number,riskLevel:{type:String,enum:['low','moderate','high','unknown'],default:'unknown'},riskFactors:{type:[String],default:[]},explanations:{type:[mongoose.Schema.Types.Mixed],default:[]},createdAt:{type:Date,default:Date.now},rawOutput:mongoose.Schema.Types.Mixed},{timestamps:true});
+schema.index({owner:1,patient:1,assessmentId:1,model:1},{unique:true});
+module.exports=mongoose.model('Prediction',schema);
