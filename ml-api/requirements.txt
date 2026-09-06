@@ -1,0 +1,11 @@
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+numpy==2.2.5
+scikit-learn==1.6.1
+xgboost==3.0.0
+joblib==1.4.2
+pydantic==2.11.3
+qiskit==1.4.5
+qiskit-machine-learning==0.8.2
+torch>=2.5,<3
+pennylane==0.41.1
